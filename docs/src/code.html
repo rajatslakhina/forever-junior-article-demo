@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;box-sizing:border-box}body{width:1200px;height:628px;background:#0f172a;font-family:Inter,"Helvetica Neue",Arial,sans-serif;color:#e2e8f0;padding:44px 56px}
+.k{font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;font-weight:600}
+h1{font-size:40px;font-weight:800;margin:10px 0 22px;color:#f8fafc}
+pre{background:#020617;border:1px solid #1e293b;border-radius:16px;padding:24px 28px;font:22px/1.5 "JetBrains Mono",Menlo,Consolas,monospace;color:#e2e8f0}
+.kw{color:#f472b6}.ty{color:#7dd3fc}.st{color:#fbbf24}.cm{color:#64748b}.g{color:#4ade80}.o{color:#fbbf24}.b{color:#60a5fa}
+.f{font-size:17px;color:#64748b;margin-top:16px}
+</style></head><body>
+<div class="k">ApprenticeLoop · DelegationGate.swift</div>
+<h1>How much may the agent take on this ticket?</h1>
+<pre><span class="kw">func</span> decide(_ ticket: <span class="ty">Ticket</span>) -> <span class="ty">Delegation</span> {
+    <span class="kw">if</span> agentOffTickets.contains(ticket.id) {
+        <span class="kw">return</span> .<span class="g">agentOff</span>(skill: ticket.skill)  <span class="cm">// their rep</span>
+    }
+    <span class="kw">var</span> missing: [<span class="ty">Delegation</span>.<span class="ty">Missing</span>] = []
+    <span class="kw">if</span> !ticket.evidence.designNoteByAssignee { missing.append(.designNote) }
+    <span class="kw">if</span> !ticket.evidence.testsWrittenFirst { missing.append(.testsFirst) }
+    <span class="kw">return</span> missing.isEmpty ? .<span class="b">agentWrites</span> : .<span class="o">tutorOnly</span>(missing: missing)
+}</pre>
+<div class="f">Constructed sprint, 3 juniors × 4 tickets → 4 agent writes · 5 tutor only · 3 agent off (asserted in tests)</div>
+</body></html>
