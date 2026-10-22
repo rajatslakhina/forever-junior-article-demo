@@ -155,14 +155,14 @@ struct ReplySection: View {
         Section(title) {
             Text(reply)
                 .font(.caption)
-                .lineLimit(3)
+                .lineLimit(2)
             if violations.isEmpty {
                 Label("Passes the contract", systemImage: "checkmark.seal.fill").foregroundStyle(.green)
             } else {
                 ForEach(violations, id: \.description) { violation in
                     Label(violation.description, systemImage: "xmark.octagon.fill")
                         .foregroundStyle(.red)
-                        .font(.subheadline)
+                        .font(.footnote)
                 }
             }
         }
