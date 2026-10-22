@@ -2,7 +2,7 @@
 
 **A delegation gate and tutor-mode contracts for teams where coding agents write most of the code, so juniors still get the reps that turn them into seniors.**
 
-Article: (added after publish)
+Article: [Coding Agents Are Producing Forever Juniors. Fixing That Is the Lead's Job.](https://medium.com/@er.rajatlakhina/coding-agents-are-producing-forever-juniors-fixing-that-is-the-leads-job-cc208cfe5320) (Medium)
 
 ![The ApprenticeLoop demo running on the iOS Simulator: the sprint gate screen with 4 agent writes, 5 tutor only and 3 agent off tickets](Demo/Screenshots/sprint.png)
 
