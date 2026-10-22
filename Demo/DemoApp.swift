@@ -130,9 +130,11 @@ struct TutorSections: View {
 
     var body: some View {
         Section("C3 · Chen's actor (\(mode.title))") {
-            Text(TutorPrompt.numbered(SampleScenario.actorSource))
-                .font(.system(size: 11, design: .monospaced))
-                .fixedSize(horizontal: false, vertical: true)
+            ScrollView(.horizontal, showsIndicators: false) {
+                Text(TutorPrompt.numbered(SampleScenario.actorSource))
+                    .font(.system(size: 11, design: .monospaced))
+                    .fixedSize()
+            }
             Text(SampleScenario.actorQuestion).font(.footnote).italic()
         }
         ReplySection(title: "Reply A · teaches", reply: SampleScenario.tutorReply, mode: mode)
@@ -153,7 +155,7 @@ struct ReplySection: View {
         Section(title) {
             Text(reply)
                 .font(.caption)
-                .lineLimit(7)
+                .lineLimit(3)
             if violations.isEmpty {
                 Label("Passes the contract", systemImage: "checkmark.seal.fill").foregroundStyle(.green)
             } else {
